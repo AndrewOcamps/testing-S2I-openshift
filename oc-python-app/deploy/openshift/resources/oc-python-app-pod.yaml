@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: python-app
+  labels:
+    app: python-app
+spec:
+  containers:
+    - name: oc-python-app
+      image: quay.io/andrewocamps/oc-python-app:latest
+      ports:
+        - containerPort: 8080
+          protocol: TCP
+  
