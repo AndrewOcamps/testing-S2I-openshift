@@ -18,5 +18,12 @@ def home():
     user = users.find_one({"name": "Gerardo"})
     return jsonify({"connection": user['status'], "name": user['name'], "age": user['age']})
 
+@app.route("/create")
+def create():
+    db = mongo.appdb
+    users = db.users
+    user = users.insert_one({"name": "Gerardo", "age": 24, "status": "ok"})
+    return jsonify({"result": "OK"})
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="8080")
